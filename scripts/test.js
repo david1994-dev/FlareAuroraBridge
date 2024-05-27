@@ -1269,7 +1269,7 @@ const ethers = require('ethers');
             }
           ];
         
-        const CONTRACT_ADDRESS = "0x79517Eca22dad3e96F4d84fd3C6dae3551aBdFc6"; //lz flare polygon address
+        const CONTRACT_ADDRESS = "0x8354dbe1407A5318A6dA94925f024fd5E6325Bd6"; //lz flare polygon address
         const FLARE_WALLET = new ethers.Wallet(owner_pk, PROVIDER);
         const myOFTA = new ethers.Contract(
           CONTRACT_ADDRESS,
@@ -1302,12 +1302,12 @@ const ethers = require('ethers');
             ]
         
             // Fetching the native fee for the token send operation
-            // const [nativeFee] = await myOFTA.quoteSend(sendParam, false)
-            const nativeFee = 0
-        
+            const [nativeFee] = await myOFTA.quoteSend(sendParam, false)
+            // const nativeFee = 0
+            console.log('nativeFee', nativeFee);
             // Executing the send operation from myOFTA contract
-            const tx = await myOFTA.send(sendParam, [nativeFee, 0], "0x8edfA0D8616Df076cAe8448dc5354Dc05e3e4cba", { value: nativeFee, gasPrice: 113000000000, gasLimit: 100000 })//my metamask address
-            console.log(tx);
+            // const tx = await myOFTA.send(sendParam, [nativeFee, 0], "0x8edfA0D8616Df076cAe8448dc5354Dc05e3e4cba", { value: nativeFee, gasPrice: 113000000000, gasLimit: 100000 })//my metamask address
+            // console.log(tx);
             // Fetching the final token balances of ownerA and ownerB
             // const finalBalanceA = await myOFTA.balanceOf(ownerA.address)
             // const finalBalanceB = await myOFTB.balanceOf(ownerB.address)
@@ -1329,5 +1329,3 @@ main()
   console.error(error);
   process.exitCode = 1;
 });
-
-
