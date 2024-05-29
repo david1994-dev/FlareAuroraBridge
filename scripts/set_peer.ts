@@ -1277,7 +1277,7 @@ const {token_address, owner_pk, spin_address, faucet_address} = require('../../c
     // );
 
     const myOFTB = new ethers.Contract(
-        "0x844a719ea8123a3AE4087786f522A8A9c67FE0aE",
+        "0x844a719ea8123a3AE4087786f522A8A9c67FE0aE", //Aurora OTF
         CONTRACT_ABI,
         FLARE_WALLET
     );

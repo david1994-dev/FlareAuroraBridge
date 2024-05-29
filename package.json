@@ -32,8 +32,10 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@layerzerolabs/lz-definitions": "^2.3.17",
     "@layerzerolabs/lz-evm-messagelib-v2": "^2.3.15",
     "@layerzerolabs/lz-evm-oapp-v2": "^2.3.16",
-    "@layerzerolabs/lz-evm-protocol-v2": "^2.3.15"
+    "@layerzerolabs/lz-evm-protocol-v2": "^2.3.15",
+    "@layerzerolabs/lz-v2-utilities": "^2.3.17"
   }
 }

@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const ContractFactory = await ethers.getContractFactory("AuroraFalreOFT");
+  const ContractFactory = await ethers.getContractFactory("AuroraFlareOFT");
   // const ContractFactory = await ethers.getContractFactory("PolygonFlareAdapter");
 
   // const instance = await ContractFactory.deploy("0x3F231E2c08C41cFEd36cE575416F200C8B81FfE4", "0x1a44076050125825900e736c501f859c50fE728c", "0x8edfA0D8616Df076cAe8448dc5354Dc05e3e4cba");
