@@ -1,9 +1,14 @@
 import { ethers } from 'hardhat'
 
-const {token_address, owner_pk, spin_address, faucet_address} = require('../../config.json');
+const { owner_pk} = require('../config.json');
+const {PolygonFlareOFTAdapterAddress, AuroraFlareOFTAddress} = require('../constant.json');
+import {EndpointId} from '@layerzerolabs/lz-definitions';
+
 // const ethers = require('ethers');
     async function main() {
-    const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com", 137);
+    const eidA = EndpointId.POLYGON_V2_TESTNET
+    const eidB = EndpointId.AURORA_V2_TESTNET
+    const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
             
     const CONTRACT_ABI = [
         {
@@ -1268,16 +1273,15 @@ const {token_address, owner_pk, spin_address, faucet_address} = require('../../c
         }
     ];
 
-    const CONTRACT_ADDRESS = "0x8354dbe1407A5318A6dA94925f024fd5E6325Bd6"; //lz flare polygon address
     const FLARE_WALLET = new ethers.Wallet(owner_pk, PROVIDER);
-    // const myOFTA = new ethers.Contract(
-    // CONTRACT_ADDRESS,
-    // CONTRACT_ABI,
-    // FLARE_WALLET
-    // );
+    const myOFTA = new ethers.Contract(
+        PolygonFlareOFTAdapterAddress,
+        CONTRACT_ABI,
+        FLARE_WALLET
+    );
 
     const myOFTB = new ethers.Contract(
-        "0x844a719ea8123a3AE4087786f522A8A9c67FE0aE", //Aurora OTF
+        AuroraFlareOFTAddress,
         CONTRACT_ABI,
         FLARE_WALLET
     );
@@ -1285,11 +1289,12 @@ const {token_address, owner_pk, spin_address, faucet_address} = require('../../c
     const signers = await ethers.getSigners()
 
     const ownerA = signers.at(0)!
-    const myOFTA = (await ethers.getContractFactory("PolygonFlareAdapter")).attach("0x8354dbe1407A5318A6dA94925f024fd5E6325Bd6");//polygon adapter
+    const ownerB = ownerA;
+    // const myOFTA = (await ethers.getContractFactory("PolygonFlareAdapter")).attach("0x8354dbe1407A5318A6dA94925f024fd5E6325Bd6");//polygon adapter
 
-    let peer = await myOFTA.connect(ownerA).setPeer(211, ethers.utils.zeroPad(myOFTB.address, 32))
-    console.log(peer);
-    // await myOFTB.connect("0x8edfA0D8616Df076cAe8448dc5354Dc05e3e4cba").setPeer(109, ethers.utils.zeroPad(myOFTA.address, 32))
+    let a = await myOFTA.connect(ownerA).setPeer(eidB, ethers.utils.zeroPad(myOFTB.address, 32))
+    let b =await myOFTB.connect(ownerB).setPeer(eidA, ethers.utils.zeroPad(myOFTA.address, 32))
+    console.log(a, b);
 }
 
 main()
