@@ -6,8 +6,8 @@ import {EndpointId} from '@layerzerolabs/lz-definitions';
 
 // const ethers = require('ethers');
     async function main() {
-    const eidA = EndpointId.POLYGON_V2_TESTNET
-    const eidB = EndpointId.AURORA_V2_TESTNET
+    const eidA = EndpointId.AMOY_V2_TESTNET
+    const eidB = EndpointId.SEPOLIA_V2_TESTNET
     const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
             
     const CONTRACT_ABI = [

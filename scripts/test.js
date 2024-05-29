@@ -5,8 +5,8 @@ const {EndpointId} = require('@layerzerolabs/lz-definitions');
 const ethers = require('ethers');
 
     async function main() {
-      const eidA = EndpointId.POLYGON_V2_TESTNET
-      const eidB = EndpointId.AURORA_V2_TESTNET
+      const eidA = EndpointId.AMOY_V2_TESTNET
+      const eidB = EndpointId.SEPOLIA_V2_TESTNET
       const initialAmount = ethers.utils.parseEther('100')
 
       const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
@@ -1300,9 +1300,12 @@ const ethers = require('ethers');
           
           // Fetching the native fee for the token send operation
           const [nativeFee] = await myOFTA.quoteSend(sendParam, false)
+          console.log("nativeFee", ethers.utils.formatEther(nativeFee));
+
+          nativeFee = 0.01;
           let txOptions = {
-            gasPrice: 113000000000,
-            gasLimit: 100000,
+            // gasPrice: 40000000000,
+            // gasLimit: 100000,
             value: nativeFee
           };
 
