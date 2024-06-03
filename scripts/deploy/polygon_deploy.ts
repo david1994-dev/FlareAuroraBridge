@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-const {mumbai_address, sepolia} = require('../../constant.json');
+const {origin_lz_address} = require('../../constant.json');
 const {faucet_address} = require('../../config.json');
 const fs = require('fs');
 
@@ -17,7 +17,7 @@ async function main() {
  //deploy PolygonFlareOFTAdapter
  console.log('deploy PolygonFlareOFTAdapter....')
  const PolygonFlareOFTAdapterFactory = await ethers.getContractFactory("PolygonFlareAdapter");
- const PolygonFlareOFTAdapterInstance = await PolygonFlareOFTAdapterFactory.deploy(polygonFlareAddress, mumbai_address, faucet_address, {gasLimit: 5000000, gasPrice: 40000000000});
+ const PolygonFlareOFTAdapterInstance = await PolygonFlareOFTAdapterFactory.deploy(polygonFlareAddress, origin_lz_address, faucet_address, {gasLimit: 5000000, gasPrice: 40000000000});
  await PolygonFlareOFTAdapterInstance.deployed();
  const PolygonFlareOFTAdapterAddress = PolygonFlareOFTAdapterInstance.address;
 

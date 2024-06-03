@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-const {sepolia} = require('../../constant.json');
+const {destination_lz_address} = require('../../constant.json');
 const {faucet_address} = require('../../config.json');
 const fs = require('fs');
 
@@ -7,7 +7,7 @@ async function main() {
  //deploy AuroraFlareOFT
  console.log('deploy AuroraFlareOFT....')
  const AuroraFlareOFTFactory = await ethers.getContractFactory("AuroraFlareOFT");  
- const AuroraFlareOFTInstance = await AuroraFlareOFTFactory.deploy("Flare Test Tokena", "2TT", sepolia, faucet_address);
+ const AuroraFlareOFTInstance = await AuroraFlareOFTFactory.deploy("Flare Test Tokena", "2TT", destination_lz_address, faucet_address);
  await AuroraFlareOFTInstance.deployed();
  const AuroraFlareOFTAddress = AuroraFlareOFTInstance.address;
 
