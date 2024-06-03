@@ -1280,6 +1280,7 @@ const ethers = require('ethers');
         CONTRACT_ABI,
         FLARE_WALLET
       );
+  
           // await myOFTA.mint(faucet_address, initialAmount) //my metamask address
       
           // Defining the amount of tokens to send and constructing the parameters for the send operation
@@ -1302,7 +1303,6 @@ const ethers = require('ethers');
           const [nativeFee] = await myOFTA.quoteSend(sendParam, false)
           console.log("nativeFee", ethers.utils.formatEther(nativeFee));
 
-          nativeFee = 0.01;
           let txOptions = {
             // gasPrice: 40000000000,
             // gasLimit: 100000,

@@ -8,7 +8,7 @@ import {EndpointId} from '@layerzerolabs/lz-definitions';
     async function main() {
     const eidA = EndpointId.AMOY_V2_TESTNET
     const eidB = EndpointId.SEPOLIA_V2_TESTNET
-    const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
+    const PROVIDER = new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org", 11155111);
             
     const CONTRACT_ABI = [
         {
@@ -1290,15 +1290,10 @@ import {EndpointId} from '@layerzerolabs/lz-definitions';
 
     const ownerA = signers.at(0)!
     const ownerB = ownerA;
-    let txOptions = {
-        gasPrice: 113000000000, // 40 Gwei
-        gasLimit: 50000
-        // nonce: 9
-      };
     // const myOFTA = (await ethers.getContractFactory("PolygonFlareAdapter")).attach("0x8354dbe1407A5318A6dA94925f024fd5E6325Bd6");//polygon adapter
 
-    let a = await myOFTA.connect(ownerA).setPeer(eidB, ethers.utils.zeroPad(myOFTB.address, 32), txOptions)
-    let b =await myOFTB.connect(ownerB).setPeer(eidA, ethers.utils.zeroPad(myOFTA.address, 32), txOptions)
+    let a = await myOFTA.connect(ownerA).setPeer(eidB, ethers.utils.zeroPad(myOFTB.address, 32))
+    let b =await myOFTB.connect(ownerB).setPeer(eidA, ethers.utils.zeroPad(myOFTA.address, 32))
     console.log(a, b);
 }
 

@@ -7,7 +7,7 @@ async function main() {
  //deploy AuroraFlareOFT
  console.log('deploy AuroraFlareOFT....')
  const AuroraFlareOFTFactory = await ethers.getContractFactory("AuroraFlareOFT");  
- const AuroraFlareOFTInstance = await AuroraFlareOFTFactory.deploy("Flare Test Token", "2T", sepolia, faucet_address);
+ const AuroraFlareOFTInstance = await AuroraFlareOFTFactory.deploy("Flare Test Tokena", "2TT", sepolia, faucet_address);
  await AuroraFlareOFTInstance.deployed();
  const AuroraFlareOFTAddress = AuroraFlareOFTInstance.address;
 
