@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 /// @custom:security-contact support@pipeflare.io
 contract FlareTestToken is ERC20, ERC20Burnable, Ownable {
-    constructor() ERC20("Flare Test Tokena", "2TT") {}
+    constructor() ERC20("Flare Test Tokenaa", "2TTT") {}
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);

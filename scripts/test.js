@@ -5,11 +5,11 @@ const {EndpointId} = require('@layerzerolabs/lz-definitions');
 const ethers = require('ethers');
 
     async function main() {
-      const eidA = EndpointId.AMOY_V2_TESTNET
-      const eidB = EndpointId.SEPOLIA_V2_TESTNET
+      const eidA = EndpointId.POLYGON_V2_MAINNET
+      const eidB = EndpointId.AURORA_V2_MAINNET
       const initialAmount = ethers.utils.parseEther('100')
 
-      const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
+      const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com", 137);
       
       const CONTRACT_ABI = [
           {
@@ -1288,7 +1288,9 @@ const ethers = require('ethers');
       
           // Defining extra message execution options for the send operation
           const options = Options.newOptions().addExecutorLzReceiveOption(200000, 0).toHex().toString()
-      
+          console.log(JSON.stringify(Options.newOptions().addExecutorLzReceiveOption(200000, 0), null, 2));
+          return;
+
           const sendParam = [
               eidB,
               ethers.utils.zeroPad(faucet_address, 32),//my metamask address

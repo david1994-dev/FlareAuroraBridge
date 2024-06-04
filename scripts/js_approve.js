@@ -3,7 +3,7 @@ const ethers = require('ethers');
 const {owner_pk} = require('../config.json');
 const {polygonFlareAddress, PolygonFlareOFTAdapterAddress} = require('../constant.json');
 
-const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-amoy-bor-rpc.publicnode.com", 80002);
+const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com", 137);
 
 const CONTRACT_ABI = [{
   "constant": false,

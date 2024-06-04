@@ -1,7 +1,7 @@
 {
-    "origin_lz_address":"0x6EDCE65403992e310A62460808c4b910D972f10f",
-    "destination_lz_address":"0x6EDCE65403992e310A62460808c4b910D972f10f",
-    "polygonFlareAddress":"0x5182292b8127Fe6216A0526A2a754025e7F38cb8",
-    "PolygonFlareOFTAdapterAddress":"0x7525E09faf6572742777310Cb47DB64669fD3DcF",
-    "AuroraFlareOFTAddress":"0x998e04325b0948186e13C64ea758F03ef3008268"
+    "origin_lz_address":"0x1a44076050125825900e736c501f859c50fE728c",
+    "destination_lz_address":"0x1a44076050125825900e736c501f859c50fE728c",
+    "polygonFlareAddress":"0x5A108f43ddd257665528B0c6fb3A5C89542A26B7",
+    "PolygonFlareOFTAdapterAddress":"0x240Cc49693A7cEE04DF4aBD401456AF0F976740A",
+    "AuroraFlareOFTAddress":"0x1b7a2b60A4c0C3F55dBd191ae456763B276fE216"
 }
