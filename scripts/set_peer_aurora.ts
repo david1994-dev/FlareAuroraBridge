@@ -7,8 +7,8 @@ import {EndpointId} from '@layerzerolabs/lz-definitions';
 // const ethers = require('ethers');
     async function main() {
     const eidA = EndpointId.POLYGON_V2_MAINNET
-    const eidB = EndpointId.AVALANCHE_V2_MAINNET
-    const PROVIDER = new ethers.providers.JsonRpcProvider("https://avalanche.drpc.org", 43114);
+    const eidB = EndpointId.AURORA_V2_MAINNET
+    const PROVIDER = new ethers.providers.JsonRpcProvider("https://mainnet.aurora.dev/727b7d29cff3f12b1976b5a1bcf8e7c2b1bc612a8856b460ab9bbdfadd725ba", 1313161554);
             
     const CONTRACT_ABI = [
         {

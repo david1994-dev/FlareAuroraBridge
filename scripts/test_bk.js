@@ -6,7 +6,7 @@ const ethers = require('ethers');
 
     async function main() {
       const eidA = EndpointId.POLYGON_V2_MAINNET
-      const eidB = EndpointId.AVALANCHE_V2_MAINNET
+      const eidB = EndpointId.AURORA_V2_MAINNET
       const initialAmount = ethers.utils.parseEther('100')
 
       const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com", 137);

@@ -7,7 +7,7 @@ const {PolygonFlareOFTAdapterAddress} = require('../constant.json');
 // Test interacts with already deployed contracts
 // to assert a send operation is possible
 async function main() {
-    const eidB = EndpointId.AVALANCHE_V2_MAINNET
+    const eidB = EndpointId.AURORA_V2_MAINNET
     const owner = (await hre.ethers.getSigners())[0];
     const oftAdapterArtifact = await hre.artifacts.readArtifact(
         "PolygonFlareAdapter"
@@ -30,7 +30,7 @@ async function main() {
 
     const sendParam = [
         eidB,
-        ethers.utils.zeroPad(owner.address, 32), //my metamask address
+        ethers.utils.zeroPad(owner.address, 32),
         tokensToSend,
         tokensToSend,
         options,
