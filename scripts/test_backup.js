@@ -6,7 +6,7 @@ const ethers = require('ethers');
 
     async function main() {
       const eidA = EndpointId.POLYGON_V2_MAINNET
-      const eidB = EndpointId.AURORA_V2_MAINNET
+      const eidB = EndpointId.AVALANCHE_V2_MAINNET
       const initialAmount = ethers.utils.parseEther('100')
 
       const PROVIDER = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com", 137);
@@ -1288,8 +1288,6 @@ const ethers = require('ethers');
       
           // Defining extra message execution options for the send operation
           const options = Options.newOptions().addExecutorLzReceiveOption(200000, 0).toHex().toString()
-          console.log(JSON.stringify(Options.newOptions().addExecutorLzReceiveOption(200000, 0), null, 2));
-          return;
 
           const sendParam = [
               eidB,
@@ -1304,13 +1302,11 @@ const ethers = require('ethers');
           // Fetching the native fee for the token send operation
           const [nativeFee] = await myOFTA.quoteSend(sendParam, false)
           console.log("nativeFee", ethers.utils.formatEther(nativeFee));
-
           let txOptions = {
-            // gasPrice: 40000000000,
-            // gasLimit: 100000,
-            value: nativeFee
+            gasPrice: 40000000000,
+            value: nativeFee,
           };
-
+         
           // Executing the send operation from myOFTA contract
           const tx = await myOFTA.send(sendParam, [nativeFee, 0], faucet_address, txOptions)
           console.log(tx);
