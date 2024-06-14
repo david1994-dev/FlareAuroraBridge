@@ -17,6 +17,11 @@ const config: HardhatUserConfig = {
       url: "https://polygon-rpc.com",
       chainId: 137,
       accounts: [owner_pk, owner_pk]
+    },
+    avalanche: {
+      url: "https://avalanche-c-chain-rpc.publicnode.com",
+      chainId: 43114,
+      accounts: [owner_pk, owner_pk]
     }
   },
   solidity: {
